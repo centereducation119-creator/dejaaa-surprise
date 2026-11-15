@@ -1,0 +1,278 @@
+
+/* BASIC SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #17000d, #510d2b, #19000e);
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* MAIN CARD */
+
+.container {
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    z-index: 2;
+}
+
+/* FRONT COVER */
+
+.cover {
+    width: 100%;
+    text-align: center;
+    padding: 45px 25px;
+    border: 1px solid #e58aaa;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #57152f, #270b1c);
+    box-shadow: 0 10px 45px rgba(255, 60, 120, 0.25);
+    animation: fadeIn 1.2s ease;
+}
+
+.rose {
+    font-size: 65px;
+    margin-bottom: 25px;
+    animation: heartbeat 2s infinite;
+}
+
+.small-heading {
+    color: #ffb4ce;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+h1 {
+    color: #ffb2cc;
+    font-size: clamp(30px, 8vw, 40px);
+    margin-bottom: 20px;
+}
+
+.intro {
+    color: #ffe3ec;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.gift {
+    font-size: 65px;
+    margin: 30px 0;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.instruction {
+    color: #ffd0df;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* HOLD BUTTON */
+
+button {
+    width: 100%;
+    max-width: 280px;
+    padding: 17px 15px;
+    border: 1px solid #ffc1d5;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #c21850, #ff719d);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    box-shadow: 0 5px 25px rgba(255, 50, 110, 0.35);
+    transition: transform 0.2s;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: white;
+    pointer-events: none;
+}
+
+button.holding .progress {
+    animation: fill 3s linear forwards;
+}
+
+.timer {
+    margin-top: 18px;
+    color: #ffb4ce;
+    font-size: 12px;
+}
+
+.bottom-text {
+    margin-top: 35px;
+    color: #eeb1c5;
+    font-size: 12px;
+}
+
+/* LOVE LETTER */
+
+.letter {
+    display: none;
+    width: 100%;
+    padding: 40px 25px;
+    border-radius: 25px;
+    text-align: center;
+    color: #5a1934;
+    background: linear-gradient(145deg, #fff5f8, #ffe1eb);
+    box-shadow: 0 10px 45px rgba(255, 70, 130, 0.3);
+}
+
+.letter.show {
+    display: block;
+    animation: letterOpen 1.2s ease;
+}
+
+.letter-rose {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.letter .small-heading {
+    color: #b32c5b;
+}
+
+.letter h1 {
+    color: #a91f50;
+}
+
+.divider {
+    height: 1px;
+    background: #e4a2b8;
+    margin: 25px 5px;
+}
+
+.love-message {
+    color: #56223a;
+    font-size: 15px;
+    line-height: 2;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.letter h2 {
+    color: #ad2054;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.ending {
+    color: #742746;
+    line-height: 1.8;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.big-heart {
+    font-size: 45px;
+    margin: 20px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.signature {
+    color: #a91f50;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    animation: rise 7s linear forwards;
+    z-index: 1;
+}
+
+/* ANIMATIONS */
+
+@keyframes fill {
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes floating {
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes letterOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.75) translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* MOBILE DESIGN */
+
+@media (max-width: 480px) {
+    .cover {
+        padding: 35px 18px;
+    }
+
+    .letter {
+        padding: 30px 18px;
+    }
+
+    .love-message {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+}
